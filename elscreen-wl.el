@@ -1,12 +1,10 @@
-;; -*- Mode: Emacs-Lisp -*-
-;;
-;; elscreen-wl.el
-;;
-(defconst elscreen-wl-version "0.8.0 (November 03, 2007)")
-;;
-;; Author:   Naoto Morishima <naoto@morishima.net>
-;; Created:  March 24, 2001
-;; Revised:  November 03, 2007
+;;; elscreen-wl.el --- elscreen plugin for Wanderlust
+
+;; Copyright (C) 2013 by Naoto Morishima, Syohei YOSHIDA
+
+;; Author: Naoto Morishima <naoto@morishima.net>
+;; URL:
+;; Version: 0.8.1
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -22,10 +20,20 @@
 ;; along with this program; see the file COPYING.  If not, write to
 ;; the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 
-(provide 'elscreen-wl)
+;; You should have received a copy of the GNU General Public License
+;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+;;; Commentary:
+
+;; Fork version of elscreen-wl 0.8.0. elscreen-wl does not work with
+;; latest `Wanderlust'.
+
+;;; Code:
+
+(defconst elscreen-wl-version "0.8.1 (January 27, 2013)")
+
 (require 'elscreen)
 (require 'wl)
-
 
 ;;; User Customizable Variables:
 
@@ -90,14 +98,9 @@ mode-line."
                    (when `(buffer-live-p ,(current-buffer))
                      (elscreen-kill)))))))
 
-(defadvice wl-draft-create-buffer (around
-                                   elscreen-ad-wl-draft-create-buffer
-                                   activate)
-  (elscreen-wl-draft-create-buffer ad-do-it))
-
-(defadvice wl-draft-reedit (around
-                            elscreen-ad-wl-draft-reedit
-                            activate)
+(defadvice wl-draft (around
+                     elscreen-ad-wl-draft
+                     activate)
   (elscreen-wl-draft-create-buffer ad-do-it))
 
 (defadvice wl-jump-to-draft-buffer (around
@@ -153,3 +156,7 @@ mode-line."
     (when elscreen-wl-display-biff-on-tab
       (setq wl-biff-check-folder-list nil))
     ad-do-it))
+
+(provide 'elscreen-wl)
+
+;;; elscreen-wl.el ends here
