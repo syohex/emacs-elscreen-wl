@@ -103,6 +103,11 @@ mode-line."
                      activate)
   (elscreen-wl-draft-create-buffer ad-do-it))
 
+(defadvice wl-draft-reedit (around
+                            elscreen-ad-wl-draft-reedit
+                            activate)
+  (elscreen-wl-draft-create-buffer ad-do-it))
+
 (defadvice wl-jump-to-draft-buffer (around
                                     elscreen-ad-wl-jump-to-draft-screen
                                     activate)
