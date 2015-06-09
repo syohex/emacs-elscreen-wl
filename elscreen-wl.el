@@ -1,10 +1,11 @@
 ;;; elscreen-wl.el --- elscreen plugin for Wanderlust
 
-;; Copyright (C) 2013 by Naoto Morishima, Syohei YOSHIDA
+;; Copyright (C) 2015 by Naoto Morishima, Syohei YOSHIDA
 
 ;; Author: Naoto Morishima <naoto@morishima.net>
-;; URL:
+;; URL: https://github.com/syohex/emacs-elscreen-wl
 ;; Version: 0.8.1
+;; Package-Requires: ((elscreen "20140421.414") (wanderlust "2.15.9"))
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
